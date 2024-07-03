@@ -1,0 +1,54 @@
+{
+  "profile": {
+    "full_name": "Your Name",
+    "location": "Location",
+    "email": "yourname@email.com",
+    "phone": "01234 567890"
+  },
+  "summary": "A brief summary to highlight your most valuable skills and experience.",
+  "experience": [
+    {
+      "job_title": "Job Title",
+      "company": "Company",
+      "location": "Location",
+      "from_month": "Jan 2024",
+      "to_month": "Present",
+      "description": "A short paragraph explaining your job role and main responsibilities."
+    },
+    {
+      "job_title": "Job Title",
+      "company": "Company",
+      "location": "Location",
+      "from_month": "Jan 2023",
+      "to_month": "Jan 2024",
+      "description": "A short paragraph explaining your job role and main responsibilities."
+    }
+  ],
+  "education": [
+    {
+      "course_title": "BSc Degree Title",
+      "school": "University Name",
+      "to_year": "2024"
+    },
+    {
+      "course_title": "A-levels",
+      "school": "College Name",
+      "to_year": "2023"
+    },
+    {
+      "course_title": "GCSEs",
+      "school": "School Name",
+      "to_year": "2021"
+    }
+  ],
+  "skills": [
+    {
+      "description": "Microsoft Word",
+      "competency": "expert"
+    },
+    {
+      "description": "Microsoft Powerpoint",
+      "competency": "advanced"
+    }
+  ]
+}
