@@ -12,20 +12,24 @@ def load_data(filepath: str = CV_JSON_FILE) -> dict:
     return cv_data
 
 
+class CVDocument(Document):
+    def __init__(self) -> None:
+        geometry_options = {
+            "paper": "a4paper",
+            "top": "20mm",
+            "left": "25mm",
+        }
+        super().__init__(
+            pagestyle="empty",
+            indent=False,
+            geometry_options=geometry_options,
+        )
+        self.preamble.usepackage("enumitem")
+
+
 if __name__ == "__main__":
     cv_data = load_data()
-
-    geometry_options = {
-        "paper": "a4paper",
-        "top": "20mm",
-        "left": "25mm",
-    }
-    cv_document = Document(
-        pagestyle="empty",
-        indent=False,
-        geometry_options=geometry_options,
-    )
-    cv_document.preamble.usepackage("enumitem")
+    cv_document = CVDocument()
 
     cv_document.begin()
 
