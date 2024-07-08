@@ -7,12 +7,16 @@ class Document:
         self,
         *,
         documentclass: str = "article",
+        pagestyle: str | None = None,
         geometry_options: dict | None = None,
     ) -> None:
         self.preamble: list[str] = []
         self._content: list[str] = []
 
         self.preamble.append(f"\\documentclass{{{documentclass}}}")
+
+        if pagestyle:
+            self.preamble.append(f"\\pagestyle{{{pagestyle}}}")
 
         if geometry_options:
             self.preamble.append("\\usepackage{geometry}")

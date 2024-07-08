@@ -21,9 +21,9 @@ if __name__ == "__main__":
         "left": "25mm",
     }
     cv_document = Document(
+        pagestyle="empty",
         geometry_options=geometry_options,
     )
-    cv_document.preamble.append("\\pagestyle{empty}")
     cv_document.preamble.append("\\setlength\\parindent{0pt}")
     cv_document.preamble.append("\\usepackage{enumitem}")
 
