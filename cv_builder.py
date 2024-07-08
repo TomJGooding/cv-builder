@@ -25,7 +25,7 @@ if __name__ == "__main__":
         indent=False,
         geometry_options=geometry_options,
     )
-    cv_document.preamble.append("\\usepackage{enumitem}")
+    cv_document.preamble.usepackage("enumitem")
 
     cv_document.begin()
 
