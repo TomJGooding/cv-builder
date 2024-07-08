@@ -22,9 +22,9 @@ if __name__ == "__main__":
     }
     cv_document = Document(
         pagestyle="empty",
+        indent=False,
         geometry_options=geometry_options,
     )
-    cv_document.preamble.append("\\setlength\\parindent{0pt}")
     cv_document.preamble.append("\\usepackage{enumitem}")
 
     cv_document.begin()
@@ -51,7 +51,6 @@ if __name__ == "__main__":
         job = cv_document.create_subsubsection(job_data["job_title"])
         job.append(f"{job_data['company']}, {job_data['location']}\\newline")
         job.append(f"{job_data['from_month']} - {job_data['to_month']}\\par")
-        job.append("\\vspace*{1em}")
         job.append(job_data["description"])
         experience.extend(job)
     cv_document.extend(experience)

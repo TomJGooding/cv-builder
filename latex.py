@@ -8,6 +8,7 @@ class Document:
         *,
         documentclass: str = "article",
         pagestyle: str | None = None,
+        indent: bool = True,
         geometry_options: dict | None = None,
     ) -> None:
         self.preamble: list[str] = []
@@ -17,6 +18,9 @@ class Document:
 
         if pagestyle:
             self.preamble.append(f"\\pagestyle{{{pagestyle}}}")
+
+        if not indent:
+            self.preamble.append("\\usepackage{parskip}")
 
         if geometry_options:
             self.preamble.append("\\usepackage{geometry}")
