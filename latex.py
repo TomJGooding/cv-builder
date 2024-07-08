@@ -18,6 +18,9 @@ class Preamble:
             options_str = _options_dict_to_str(options)
             self.append(f"\\{name}{{{options_str}}}")
 
+    def dumps(self) -> str:
+        return "\n".join(self._content)
+
 
 class Document:
     def __init__(
@@ -72,9 +75,11 @@ class Document:
         section.append(f"\\subsubsection*{{{title}}}")
         return section
 
+    def dumps(self) -> str:
+        preamble_dumps = self.preamble.dumps()
+        document_dumps = "\n".join(self._content)
+        return preamble_dumps + "\n\n" + document_dumps
+
     def generate_tex(self, filepath: str) -> None:
         with open(filepath, "w", encoding="utf-8") as f:
-            for line in self.preamble._content:
-                f.write(f"{line}\n")
-            for line in self._content:
-                f.write(f"{line}\n")
+            f.write(self.dumps())
