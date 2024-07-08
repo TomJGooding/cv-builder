@@ -5,6 +5,7 @@ def _options_dict_to_str(options_dict: dict) -> str:
 class Document:
     def __init__(
         self,
+        *,
         documentclass: str = "article",
         geometry_options: dict | None = None,
     ) -> None:
