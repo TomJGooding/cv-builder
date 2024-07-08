@@ -1,12 +1,22 @@
+def _options_dict_to_str(options_dict: dict) -> str:
+    return ", ".join(f"{key}={value}" for key, value in options_dict.items())
+
+
 class Document:
     def __init__(
         self,
         documentclass: str = "article",
+        geometry_options: dict | None = None,
     ) -> None:
         self.preamble: list[str] = []
         self._content: list[str] = []
 
         self.preamble.append(f"\\documentclass{{{documentclass}}}")
+
+        if geometry_options:
+            self.preamble.append("\\usepackage{geometry}")
+            options_str = _options_dict_to_str(geometry_options)
+            self.preamble.append(f"\\geometry{{{options_str}}}")
 
     def append(self, line: str) -> None:
         self._content.append(line)

@@ -14,10 +14,15 @@ def load_data(filepath: str = CV_JSON_FILE) -> dict:
 
 if __name__ == "__main__":
     cv_data = load_data()
-    cv_document = Document()
 
-    cv_document.preamble.append("\\usepackage{geometry}")
-    cv_document.preamble.append("\\geometry{a4paper, left=25mm, top=20mm}")
+    geometry_options = {
+        "paper": "a4paper",
+        "top": "20mm",
+        "left": "25mm",
+    }
+    cv_document = Document(
+        geometry_options=geometry_options,
+    )
     cv_document.preamble.append("\\pagestyle{empty}")
     cv_document.preamble.append("\\setlength\\parindent{0pt}")
     cv_document.preamble.append("\\usepackage{enumitem}")
